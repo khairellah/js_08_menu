@@ -1,3 +1,4 @@
+// items
 const menu = [
   {
     id: 1,
@@ -72,3 +73,34 @@ const menu = [
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
 ];
+
+// get html elements
+const sectionCenter = document.querySelector(".section-center");
+
+window.addEventListener("load", () => {
+  //call back Function
+  displayMenuItems(menu);
+});
+
+// My function
+const displayMenuItems = (menuItems) => {
+  // console.log(`i'm inside`)
+  let displayMenu = menuItems.map(function (item) {
+    // console.log(item)
+    return `<article class="menu-item">
+  <img src=${item.img} class="photo" alt=${item.title}>
+  <div class="item-info">
+  <head>
+    <h4>${item.title}</h4>
+    <h4 class="price">$${item.price}</h4>
+  </head>
+  <p class="item-text">${item.desc}</p>
+  </div>
+</article>`;
+  });
+  //make all itesmin one String
+  displayMenu = displayMenu.join("");
+  //console.log(displayMenu);
+  //put the items in the Html Page
+  sectionCenter.innerHTML = displayMenu;
+};
