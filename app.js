@@ -76,10 +76,37 @@ const menu = [
 
 // get html elements
 const sectionCenter = document.querySelector(".section-center");
+const filterBtns = document.querySelectorAll(".filter-btn");
 
+//Load all items
 window.addEventListener("load", () => {
   //call back Function
   displayMenuItems(menu);
+});
+
+//Load filtered items
+filterBtns.forEach(function (btn) {
+  //add event
+  btn.addEventListener("click", (e) => {
+    // get the category selected 'dataset.category' int the html file
+    const category = e.currentTarget.dataset.category;
+    console.log(category);
+    if (category === "all") {
+      displayMenuItems(menu);
+    } else if (category === "breakfast") {
+      const newMenu = menu.filter((menu) => menu.category === "breakfast");
+      console.log(newMenu);
+      displayMenuItems(newMenu);
+    } else if (category === "lunch") {
+      const newMenu = menu.filter((menu) => menu.category === "lunch");
+      console.log(newMenu);
+      displayMenuItems(newMenu);
+    } else if (category === "shakes") {
+      const newMenu = menu.filter((menu) => menu.category === "shakes");
+      console.log(newMenu);
+      displayMenuItems(newMenu);
+    }
+  });
 });
 
 // My function
