@@ -72,6 +72,14 @@ const menu = [
     img: "./images/item-9.jpeg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
+  {
+    id: 10,
+    title: "Shadow Dinner",
+    category: "dinner",
+    price: 20.99,
+    img: "./images/tacos.jpg",
+    desc: `Tacos dial ch khairellah l be +5 lenevo city club dj nv marie richbond avec 2 oreillé + ing`,
+  },
 ];
 
 // get html elements
@@ -90,22 +98,24 @@ filterBtns.forEach(function (btn) {
   btn.addEventListener("click", (e) => {
     // get the category selected 'dataset.category' int the html file
     const category = e.currentTarget.dataset.category;
-    console.log(category);
+    //console.log(category);
     if (category === "all") {
       displayMenuItems(menu);
     } else if (category === "breakfast") {
       const newMenu = menu.filter((menu) => menu.category === "breakfast");
-      console.log(newMenu);
       displayMenuItems(newMenu);
     } else if (category === "lunch") {
       const newMenu = menu.filter((menu) => menu.category === "lunch");
-      console.log(newMenu);
       displayMenuItems(newMenu);
     } else if (category === "shakes") {
       const newMenu = menu.filter((menu) => menu.category === "shakes");
-      console.log(newMenu);
       displayMenuItems(newMenu);
     }
+    else if (category === "dinner") {
+      const newMenu = menu.filter((menu) => menu.category === "dinner");
+      displayMenuItems(newMenu);
+    }
+    
   });
 });
 
